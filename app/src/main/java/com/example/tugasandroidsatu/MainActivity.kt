@@ -16,6 +16,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        tvHome = findViewById(R.id.tv_home)
+
+        val bundle = intent.extras
+        if (bundle !=null){
+            tvHome.setText(bundle.getString("username"))
+        }
+
         binding.btnDark.setOnClickListener(){
             replacefragment(DarkMode())
         }
